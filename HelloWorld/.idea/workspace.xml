@@ -8,15 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f73ad1e7-2d12-4079-ac06-da5c47e9e780" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RESTful Server/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RESTful Server/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RESTful Server/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RESTful Server/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RESTful Server/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RESTful Server/RESTful Server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RESTful Server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RESTful Server/src/main/java/REST/TestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../RESTful Server/src/main/java/REST/TestModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RESTful/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../RESTful/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -285,15 +277,16 @@
       <updated>1547173553882</updated>
       <workItem from="1547173558622" duration="1155000" />
       <workItem from="1547176605727" duration="517000" />
-      <workItem from="1547196290655" duration="787000" />
+      <workItem from="1547196290655" duration="1014000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2459000" />
+    <option name="totallyTimeSpent" value="2686000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2603939" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
