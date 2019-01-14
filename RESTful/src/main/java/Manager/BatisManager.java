@@ -3,7 +3,6 @@ package Manager;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import java.io.IOException;
 import java.io.Reader;
 
 public class BatisManager {
@@ -13,7 +12,7 @@ public class BatisManager {
         Reader reader = null;
         try {
             reader = Resources.getResourceAsReader(resource);
-        } catch (IOException except) {
+        } catch (Exception except) {
             System.out.println(except.getMessage());
         }
         _factory = new SqlSessionFactoryBuilder().build(reader);

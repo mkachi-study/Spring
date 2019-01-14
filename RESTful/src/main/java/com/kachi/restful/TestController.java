@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/index")
-public class Controller {
+public class TestController {
     private static SqlSessionFactory _factory;
     static {
         _factory = BatisManager.getSqlSessionFactory();
@@ -21,7 +21,7 @@ public class Controller {
         return "Hello!";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value="/test")
+    @RequestMapping(method = RequestMethod.GET, value="/tes")
     public List<User> getUsers() {
         List<User> result;
         SqlSession session = _factory.openSession();
@@ -58,7 +58,7 @@ public class Controller {
         return true;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value="/test")
+    @RequestMapping(method = RequestMethod.PUT, value="/test")
     public boolean updateUser(@PathVariable int id, @PathVariable String name) {
         SqlSession session = _factory.openSession();
         try {
