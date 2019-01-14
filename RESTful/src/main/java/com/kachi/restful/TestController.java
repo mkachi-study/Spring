@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/index")
@@ -21,7 +22,7 @@ public class TestController {
         return "Hello!";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value="/tes")
+    @RequestMapping(method = RequestMethod.GET, value="/select")
     public List<User> getUsers() {
         List<User> result;
         SqlSession session = _factory.openSession();
@@ -40,30 +41,29 @@ public class TestController {
         return result;
     }
 
-    @RequestMapping(method = RequestMethod.POST, value="/test")
-    public boolean insertUser(@RequestBody String name) {
+    @RequestMapping(method = RequestMethod.POST, value = "/insert")
+    public boolean insertUser(@RequestParam(value = "name") String name) {
         SqlSession session = _factory.openSession();
         try {
             UserMapper mapper = session.getMapper(UserMapper.class);
-            mapper.insert(name);
+            mapper.insertUser(name);
             session.commit();
-
         } catch (Exception except) {
             System.out.println(except.getMessage());
             return false;
-
         } finally {
             session.close();
         }
         return true;
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value="/test")
-    public boolean updateUser(@PathVariable int id, @PathVariable String name) {
+    @RequestMapping(method = RequestMethod.POST, value="/update")
+    public boolean updateUser(@RequestParam Map<String, Object> param) {
         SqlSession session = _factory.openSession();
         try {
             UserMapper mapper = session.getMapper(UserMapper.class);
-            User user = new User(id, name);
+            long id = Integer.valueOf((String)param.get("id"));
+            User user = new User(id, (String)param.get("name"));
             mapper.updateUser(user);
             session.commit();
 
@@ -77,7 +77,7 @@ public class TestController {
         return true;
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value="/tests")
+    @RequestMapping(method = RequestMethod.GET, value="/deleteall")
     public boolean deleteUsers() {
         SqlSession session = _factory.openSession();
         try {
@@ -94,8 +94,8 @@ public class TestController {
         return true;
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/users/{id}")
-    public boolean deleteUser(@PathVariable int id) {
+    @RequestMapping(method = RequestMethod.POST, value = "/delete")
+    public boolean deleteUser(@RequestParam(value = "id") int id) {
         SqlSession session = _factory.openSession();
         try {
             UserMapper mapper = session.getMapper(UserMapper.class);

@@ -1,0 +1,35 @@
+# select
+GET http://localhost:8080/index/select HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+# insert
+POST http://localhost:8080/index/insert HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+name=Test
+
+###
+
+# update
+POST http://localhost:8080/index/update HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+id=11&name=UpdateTest
+
+###
+
+# delete all
+GET http://localhost:8080/index/deleteall HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+# delete
+POST http://localhost:8080/index/delete HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+id=11
+
+###
