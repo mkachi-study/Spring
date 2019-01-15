@@ -36,7 +36,7 @@ Spring을 공부하는 Repository
 ### Spring의 MVC
 Model -> DAO, VO(DTO)  
 View -> JSP  
-Servlet -> Controller  
+Controller -> Servlet 
 #### Servlet
 Web.xml에 매핑된 자바 파일을 `Servlet`으로 변환 시키고 `Tomcat`은 이 `Servlet`을 실행  
 **Servlet으로 변환되기 위한 조건**  
