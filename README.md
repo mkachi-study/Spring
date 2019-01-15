@@ -42,6 +42,7 @@ Web.xml에 매핑된 자바 파일을 `Servlet`으로 변환 시키고 `Tomcat`�
 **Servlet으로 변환되기 위한 조건**  
 * `Tomcat`에서 만들어둔 `HttpServlet`을 상속  
 * `Get`방식과 `Post`방식을 처리하기 위한 `doGet(HttpServletRequest, HttpServletResponse)`, `doPost(HttpServletRequest, HttpServletResponse)` 메서드가 있어야함  
+  
 예)  
 ``` java
 @WebServlet("/Sample") // Annotation을 사용해 Web.xml에 매핑하지 않아도 됨
@@ -63,7 +64,7 @@ Domain Logic으로부터 Persistence 계층을 감추기 위해 사용함
   
 #### VO (Value Object) or DTO (Data Table Object)
 VO 혹은 DTO라고도 부른다.  
-한 테이블의 Column들을 멤버변수로 작성한 객체
+한 테이블의 Column들을 멤버변수로 작성한 객체  
   
 #### MVC를 처리하는 과정
 1. `Client`가 `Server`에 `Request`를 하면 `DispatcherServlet`이라는 객체가 요청을 받는다.  
