@@ -62,9 +62,10 @@ public class Sample extends HttpServlet {
 Domain Logic으로부터 Persistence 계층을 감추기 위해 사용함
 **Persistence 계층** : Database에 CRUD를 하는 계층
   
-#### VO (Value Object) or DTO (Data Table Object)
+#### VO (Value Object) or DTO (Data Transfer Object)
 VO 혹은 DTO라고도 부른다.  
 한 테이블의 Column들을 멤버변수로 작성한 객체  
+일반적으로 로직을 지니지 않고 순수한 데이터만 지닌 객체이다.  
   
 #### MVC를 처리하는 과정
 1. `Client`가 `Server`에 `Request`를 하면 `DispatcherServlet`이라는 객체가 요청을 받는다.  
