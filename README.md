@@ -44,7 +44,7 @@ Web.xml에 매핑된 자바 파일을 `Servlet`으로 변환 시키고 `Tomcat`�
 * `Get`방식과 `Post`방식을 처리하기 위한 `doGet(HttpServletRequest, HttpServletResponse)`, `doPost(HttpServletRequest, HttpServletResponse)` 메서드가 있어야함  
 예)  
 ``` java
-@WebServlet("/Sample") // 어노테이션을 사용해 Web.xml에 매핑하지 않아도 됨
+@WebServlet("/Sample") // Annotation을 사용해 Web.xml에 매핑하지 않아도 됨
 public class Sample extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.getWriter().append("Served - ").append(request.getContextPath());
@@ -64,3 +64,17 @@ Domain Logic으로부터 Persistence 계층을 감추기 위해 사용함
 #### VO (Value Object) or DTO (Data Table Object)
 VO 혹은 DTO라고도 부른다.  
 한 테이블의 Column들을 멤버변수로 작성한 객체
+  
+#### MVC를 처리하는 과정
+1. `Client`가 `Server`에 `Request`를 하면 `DispatcherServlet`이라는 객체가 요청을 받는다.  
+2. `HandlerMapping`에게 어떤 컨트롤러에게 요청 정보를 전달할지 물어본다.  
+3. `Mapping`된 `Controller`가 있다면 데이터를 전달  
+4. `Controller`에서는 요청을 처리할 `Service`를 `의존성 주입(Dependency Injection)`을 받아 로직을 `Service`에게 위임한다.  
+5. `Service`에서는 요청에 필요한 작업을 수행하며 DB관련된 처리는 `DAO`에 위임  
+6. `DAO`는 `iBatis(MyBatis)`, `Hibernate`와 같은 것들을 이용하여 DB에서 정보를 받아 `Service`에게 전달한다. (보통 이 결과를 `VO(DTO)`에 담는다.)  
+7. 작업을 끝낸 후 `Service`가 `Controller`에게 결과를 전달.  
+8. `Controller`는 어떤 `View`에 정보를 띄울 것인지 `DispatcherServlet`에 알려준다.  
+9. `DispatcherServlet`은 `ViewResolver`에게 정보를 넘긴다.  
+10. `ViewResolver`는 해당되는 JSP파일을 찾아 `DispacherServlet`에게 전달한다.  
+11. `DispatcherServlet`은 `View`에게 `Render`명령을 내리고 `View`는 관련 동작을 수행한다.  
+12. `DispatcherServlet`이 `Client`에 `Render`된 `View`를 보여준다.  
