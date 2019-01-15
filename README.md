@@ -80,3 +80,6 @@ VO 혹은 DTO라고도 부른다.
 10. `ViewResolver`는 해당되는 JSP파일을 찾아 `DispacherServlet`에게 전달한다.  
 11. `DispatcherServlet`은 `View`에게 `Render`명령을 내리고 `View`는 관련 동작을 수행한다.  
 12. `DispatcherServlet`이 `Client`에 `Render`된 `View`를 보여준다.  
+  
+## Issues
+틀린점이 있으면 Issues로 부탁드립니다.  
