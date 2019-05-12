@@ -1,4 +1,4 @@
-# Spring-Study
+# Spring
 Spring을 공부하는 Repository
   
 ## Spring
