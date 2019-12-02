@@ -34,9 +34,10 @@ Spring을 공부하는 Repository
 * **배치 프레임워크**  
     `Quartz` 기반으로 특정 시간대에 실행하거나 대용량 자료를 처리하는데 쓰이는 일괄 처리를 지원
 ### Spring의 MVC
-Model -> DAO, VO(DTO)  
+Model -> DAO, VO(DTO), Service  
 View -> JSP  
-Controller -> Servlet 
+Controller -> Controller(Servlet)
+
 #### Servlet
 Web.xml에 매핑된 자바 파일을 `Servlet`으로 변환 시키고 `Tomcat`은 이 `Servlet`을 실행  
 **Servlet으로 변환되기 위한 조건**  
@@ -58,14 +59,24 @@ public class Sample extends HttpServlet {
 ```
   
 #### DAO (Data Acess Object)
-`DAO`는 DB에 있는 Data에 접근하는 transaction 객체이다.  
-Domain Logic으로부터 Persistence 계층을 감추기 위해 사용함
-**Persistence 계층** : Database에 CRUD를 하는 계층
+`DAO`는 DB에 있는 데이터에 접근하는 `transaction` 객체이다.  
+`DAO`는 보통 `Database`하나당 하나씩 가지고 있다. (`Database`로 부터 매번 Driver를 로드하고 Connection하지 않기 위함)  
+`Domain Logic`으로부터 `Persistence` 계층을 감추기 위해 사용함  
+**Persistence 계층** : `Database`에 `CRUD`를 하는 계층  
   
-#### VO (Value Object) or DTO (Data Transfer Object)
-VO 혹은 DTO라고도 부른다.  
-한 테이블의 Column들을 멤버변수로 작성한 객체  
+#### VO (Value Object)
 일반적으로 로직을 지니지 않고 순수한 데이터만 지닌 객체이다.  
+`getter` 메서드만 지니고 있다.  
+
+#### DTO (Data Transfer Object)
+기본적인 것은 `VO (Value Object)`와 같다.  
+하지만 `DTO`는 `setter` 메서드를 지니고 있어 값을 수정할 수 있다.  
+`to...`와 같이 데이터를 Entity로 변경하기 위한 메서드 또한 지닌다.    
+
+#### Entity
+실제 `Database`의 `Table`과 매칭될 객체이다.  
+외부에서 `Entity`객체의 `getter`를 호출하지 않도록 `Entity`내부에서 필요한 `Logic`을 구현한다.  
+`Domain Logic`만을 지니고 있어야 한다.  
   
 #### MVC를 처리하는 과정
 1. `Client`가 `Server`에 `Request`를 하면 `DispatcherServlet`이라는 객체가 요청을 받는다.  

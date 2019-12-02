@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-RestfulApplication<restful>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.kachi.restful.RestfulApplication",
+            "projectName": "restful",
+            "args": ""
+        }
+    ]
+}
